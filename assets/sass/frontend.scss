@@ -1,0 +1,92 @@
+/** Core */
+@import "frontend/custom/functions";
+@import "~bootstrap/scss/functions";
+
+@import "frontend/custom/variables";
+@import "~bootstrap/scss/variables";
+
+@import "frontend/custom/mixins";
+@import "~bootstrap/scss/mixins";
+
+/** Bootstrap components */
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+// @import "~bootstrap/scss/images";
+// @import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+// @import "~bootstrap/scss/tables";
+// @import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+// @import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+// @import "~bootstrap/scss/custom-forms";
+// @import "~bootstrap/scss/nav";
+// @import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+// @import "~bootstrap/scss/breadcrumb";
+// @import "~bootstrap/scss/pagination";
+// @import "~bootstrap/scss/badge";
+// @import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+// @import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+// @import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/modal";
+// @import "~bootstrap/scss/tooltip";
+// @import "~bootstrap/scss/popover";
+// @import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/utilities";
+// @import "~bootstrap/scss/print";
+
+/** Custom components */
+@import "frontend/custom/reboot.scss";
+@import "frontend/custom/utilities.scss";
+@import "frontend/custom/alerts.scss";
+//  @import "frontend/custom/badge.scss";
+ @import "frontend/custom/buttons.scss";
+//  @import "frontend/custom/dropdown.scss";
+//  @import "frontend/custom/footer.scss";
+//  @import "frontend/custom/forms.scss";
+ @import "frontend/custom/grid.scss";
+ @import "frontend/custom/icons.scss";
+//  @import "frontend/custom/images.scss";
+//  @import "frontend/custom/input-group.scss";
+ @import "frontend/custom/modal.scss";
+//  @import "frontend/custom/nav.scss";
+//  @import "frontend/custom/navbar.scss";
+//  @import "frontend/custom/popover.scss";
+//  @import "frontend/custom/progress.scss";
+ @import "frontend/custom/type.scss";
+//  @import "frontend/custom/tables";
+//  @import "frontend/custom/checkboxes-radio";
+//  @import "frontend/custom/fixed-plugin";
+//  @import "frontend/custom/sidebar-and-main-panel.scss";
+//  @import "frontend/custom/misc.scss";
+//  @import "frontend/custom/rtl.scss";
+
+/** Vendor / Plugins */
+// @import "frontend/custom/vendor/plugin-bootstrap-switch.scss";
+@import "frontend/custom/vendor/plugin-perfect-scrollbar.scss";
+
+/**  Vendor Element UI plugins */
+// @import "frontend/custom/vendor/element-ui/plugin-tags";
+// @import "frontend/custom/vendor/element-ui/plugin-slider";
+// @import "frontend/custom/vendor/element-ui/plugin-select";
+// @import "frontend/custom/vendor/element-ui/plugin-inputs";
+// @import "frontend/custom/vendor/element-ui/plugin-tables";
+// @import "frontend/custom/vendor/element-ui/plugin-datepicker";
+
+/** light mode */
+@import "frontend/custom/white-content.scss";
+
+/** Cards */
+@import 'frontend/custom/card';
+// @import "frontend/custom/cards/card-chart";
+// @import "frontend/custom/cards/card-map";
+// @import "frontend/custom/cards/card-user";
+// @import "frontend/custom/cards/card-profile";
+// @import "frontend/custom/cards/card-plain";
