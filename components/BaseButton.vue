@@ -70,6 +70,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -77,5 +78,13 @@ export default {
   /deep/ i {
     padding: 0 3px;
   }
+}
+
+.btn-light {
+  color: var(--white);
+  background: var(--light) !important;
+  background-color: var(--light) !important;
+  border-color: var(--light) !important;
+  box-shadow: 0 4px 6px var(--secondary), 0 1px 3px var(--secondary) !important;
 }
 </style>
