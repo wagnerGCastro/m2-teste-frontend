@@ -83,5 +83,14 @@ export default {
         ]
       ]
     }
-  }
+  },
+  /**
+	 * Ignore pages/layouts/store/middleware
+	 * 
+	 * https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-ignore
+	 * 
+	 */
+	 ignore: [
+		//'pages/examples/',
+	],
 }
