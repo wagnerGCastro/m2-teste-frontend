@@ -91,6 +91,6 @@ export default {
 	 * 
 	 */
 	 ignore: [
-		//'pages/examples/',
+		'pages/examples/',
 	],
 }
