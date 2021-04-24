@@ -1,4 +1,4 @@
-import service  from '@/plugins/axios'
+import service from '@/plugins/axios'
 
 export function getProductsAll() {
   return service.request({

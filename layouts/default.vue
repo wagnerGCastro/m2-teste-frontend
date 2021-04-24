@@ -13,12 +13,11 @@
   /* eslint-disable no-new */
   import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
-  import { SlideYDownTransition, ZoomCenterTransition } from 'vue2-transitions';
+  import { ZoomCenterTransition } from 'vue2-transitions';
 
   export default {
     components: {
-      SlideYDownTransition,
-      ZoomCenterTransition,
+      ZoomCenterTransition
     }
   };
 </script>

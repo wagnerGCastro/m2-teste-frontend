@@ -8,6 +8,10 @@
     ],
     "tel": [
       {"id": 1, "package": "VIVO FIXO ILIMITADO BRASIL", "price": 49.99}
+    ],
+    "tv": [
+      {"id": 1, "plan": "Ultimate HD", "price": 299.97},
+      {"id": 2, "plan": "Full HD", "price": 259.97}
     ]
   }
 }
