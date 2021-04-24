@@ -18,6 +18,9 @@ export default {
   min-height: 200px;
   display: flex;
   align-items: center;
+  margin: 0;
+  overflow: hidden;
+ 
 }
 
 .el-loading-spinner .path {
