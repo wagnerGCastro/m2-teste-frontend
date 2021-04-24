@@ -1,0 +1,17 @@
+{
+  "products": {
+    "internet": [
+      {"id": 3, "plan": "4 MEGA", "price": 79.90},
+      {"id": 1, "plan": "1 MEGA", "price": 34.90},
+      {"id": 2, "plan": "2 MEGA", "price": 49.90},
+      {"id": 4, "plan": "8 MEGA", "price": 89.90}
+    ],
+    "tel": [
+      {"id": 1, "package": "VIVO FIXO ILIMITADO BRASIL", "price": 49.99}
+    ],
+    "tv": [
+      {"id": 1, "plan": "Ultimate HD", "price": 299.97},
+      {"id": 2, "plan": "Full HD", "price": 259.97}
+    ]
+  }
+}
