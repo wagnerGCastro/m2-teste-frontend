@@ -1,120 +1,139 @@
 <template>
   <div class="home pb-4 pt-4">
-    <!-- Internet -->
-    <div class="plan-internet">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 mb-3">
-            <h2 class="title text-primary">Internet</h2>
-            <p>Selecione um plano de internet para continuar</p>
-          </div>
-        </div>
+    <div v-if="!loadingData">
+      <loading></loading>
+    </div>
 
-        <div class="row">
-          <div v-for="(p, idx) in products.internet" :key="idx" class="col-sm-4 col-md-4 col-lg-2">
-            <card v-if="p" class="card-internet">
-              <span 
-                v-if="p.id == selected.products.internet.id"
-                class="close"
-                @click.prevent="removeInternet(p)"
-              >x</span>
-              <input 
-                :id="`rinternet-${p.id}`"
-                type="radio" 
-                name="internet" 
-                @change="selectInternet($event, p)"
-              >
-              <h4 class="card-title font-weight-bold">{{ p.plan }}</h4>
-              <p class="card-text font-weight-bold">R$ {{ p.price }}</p>
-              <div class="d-flex justify-content-end">
-                <a href="#" class="btn btn-neutral text-default font-weight-light">+ DETALHES</a>
-              </div>
-            </card>
+    <div v-if="loadingData">
+      <!-- Internet -->
+      <div class="plan-internet">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <h2 class="title text-primary">Internet</h2>
+              <p>Selecione um plano de internet para continuar</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div v-for="(p, idx) in products.internet" :key="idx" class="col-sm-4 col-md-4 col-lg-2">
+              <card v-if="p" class="card-internet">
+                <span 
+                  v-if="p.id == selected.products.internet.id"
+                  class="close"
+                  @click.prevent="removeInternet(p)"
+                >x</span>
+                <input 
+                  :id="`rinternet-${p.id}`"
+                  type="radio" 
+                  name="internet" 
+                  @change="selectInternet($event, p)"
+                >
+                <h4 class="card-title font-weight-bold">{{ p.plan }}</h4>
+                <p class="card-text font-weight-bold">R$ {{ p.price.toFixed(2) }}</p>
+                <div class="d-flex justify-content-end">
+                  <a href="#" class="btn btn-neutral text-default font-weight-light">+ DETALHES</a>
+                </div>
+              </card>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Tel -->
-    <div class="package-tel mb-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 mb-3">
-            <h2 class="title text-primary">Fixo</h2>
-            <p>Agora escolha seu pacote de telefone fixo</p>
+      <!-- Tel -->
+      <div class="package-tel mb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <h2 class="title text-primary">Fixo</h2>
+              <p>Agora escolha seu pacote de telefone fixo</p>
+            </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div v-for="(p, idx) in products.tel" :key="idx" class="col-sm-4 col-md-4 col-lg-2 mb-3">
-            <card class="card-package-tel">
-              <span 
-                v-if="p.id == selected.products.tel.id" 
-                class="close"
-                @click.prevent="removeTel(p)"
-              >x</span>
-              <input 
-                :id="`rtel-${p.id}`"
-                type="radio" 
-                name="tel"
-                @change="selectTel($event, p)"
-              >
-              <h4 class="card-title font-weight-bold">{{ p.package }}</h4>
-              <p class="card-text font-weight-bold">R$ {{ p.price }}</p>
-            </card>
+          <div class="row">
+            <div v-for="(p, idx) in products.tel" :key="idx" class="col-sm-4 col-md-4 col-lg-2 mb-3">
+              <card class="card-package-tel">
+                <span 
+                  v-if="p.id == selected.products.tel.id" 
+                  class="close"
+                  @click.prevent="removeTel(p)"
+                >x</span>
+                <input 
+                  :id="`rtel-${p.id}`"
+                  type="radio" 
+                  name="tel"
+                  @change="selectTel($event, p)"
+                >
+                <h4 class="card-title font-weight-bold">{{ p.package }}</h4>
+                <p class="card-text font-weight-bold">R$ {{ p.price.toFixed(2) }}</p>
+              </card>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Subtotal -->
-    <div class="subtotal">
+      <!-- Subtotal -->
+      <div class="subtotal">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td class="">Taxa de instalação</td>
+                    <td class="text-right">Grátis</td>
+                  </tr>
+                  <tr v-if="selected.products.internet && Object.values(selected.products.internet).length >= 1">
+                    <td>{{ selected.products.internet.plan }}</td>
+                    <td class="text-right">R$ {{ selected.products.internet.price.toFixed(2) }}</td>
+                  </tr>
+                  <tr v-if="selected.products.tel && Object.values(selected.products.tel).length >= 1">
+                    <td>{{ selected.products.tel.package }}</td>
+                    <td class="text-right">R$ {{ selected.products.tel.price.toFixed(2) }}</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td class="text-primary font-weight-bold">Total</td>
+                    <td class="text-primary text-right font-weight-bold">R$ {{ subtotal }}/mês</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- continue -->
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td class="">Taxa de instalação</td>
-                  <td class="text-right">Grátis</td>
-                </tr>
-                <tr v-if="selected.products.internet && Object.values(selected.products.internet).length >= 1">
-                  <td>{{ selected.products.internet.plan }}</td>
-                  <td class="text-right">R$ {{ selected.products.internet.price }}</td>
-                </tr>
-                <tr v-if="selected.products.tel && Object.values(selected.products.tel).length >= 1">
-                  <td>{{ selected.products.tel.package }}</td>
-                  <td class="text-right">R$ {{ selected.products.tel.price }}</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td class="text-primary font-weight-bold">Total</td>
-                  <td class="text-primary text-right font-weight-bold">R$ {{ subtotal }}/mês</td>
-                </tr>
-              </tfoot>
-            </table>
+            <base-button 
+              class="animation-on-hover" 
+              type="light"
+              @click="modals.modal0 = true"
+            >Continuar</base-button>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- continue -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <base-button class="animation-on-hover" type="light">Continuar</base-button>
+      <!-- modal -->
+      <modal :show.sync="modals.modal0">
+        <template slot="header">
+          <h3 class="modal-title" id="exampleModalLabel">Uauuu! falta pouco!</h3>
+        </template>
+        <div>
+         Escolha um dos produtos se você ainda não escolheu.
         </div>
-      </div>
-    </div>
+      </modal>
 
-    <!-- debug -->
-    <div class="container">
-      <div class="row mt-3">
-        <div class="col-12">
-          <pre class="bg-dark text-white p-1">
-            {{ JSON.stringify(selected, false, 2) }}
-          </pre>
+      <!-- debug -->
+      <div v-if="debug" class="container">
+        <div class="row mt-3">
+          <div class="col-12">
+            <pre class="bg-dark text-white p-1">
+              {{ JSON.stringify(selected, false, 2) }}
+            </pre>
+          </div>
         </div>
       </div>
     </div>
@@ -122,21 +141,13 @@
 </template>
 
 <script>
+import service from '@/services/api'
+
 export default {
   name: 'index',
   data () {
     return {
-      products: {
-        internet: [
-          {id: 3, plan: '4 MEGA', price: '79.90'},
-          {id: 1, plan: '1 MEGA', price: '34.90'},
-          {id: 2, plan: '2 MEGA', price: '49.90'},
-          {id: 4, plan: '8 MEGA', price: '89.90'}
-        ],
-        tel: [
-          {id: 1, package: 'VIVO FIXO ILIMITADO BRASIL', price: '49.99'},
-        ]
-      },
+      products: {},
       selected: {
         products: {
           internet: {},
@@ -144,7 +155,15 @@ export default {
         },
         totalCart: '0.00'
       },
+      loadingData: false,
+      debug: false,
+      modals: { 
+        modal0: false 
+      }
     }
+  },
+  mounted() {
+    this.getDataFromApi()
   },
   methods: {
     selectInternet(event, p) {
@@ -167,7 +186,53 @@ export default {
       self.selected.totalCart =  subTotal
       self.selected.products.tel = {}
       document.getElementById(`rtel-${p.id}`).checked = false;
-    }
+    },
+    notifyVue({msg, icon, horAlign, vertAlign, color}) {
+      this.$notify({
+        message: msg ? msg : 'Opss!, algo deu errado, tente novamente mais tarde!',
+        timeout: 5000,
+        icon: (icon ? icon : 'tim-icons icon-bell-55'),
+        horizontalAlign: (horAlign ? horAlign : 'center'),
+        verticalAlign: (vertAlign ? vertAlign : 'bottom'),
+        type: color ? color : 'primary'
+      });
+    },
+    async getDataFromApi() {
+      const self = this
+        
+      try {
+
+        let { data } = await service.products.getProductsAll()
+        self.products = data
+        self.loadingData = true
+
+      } catch (err) {
+        
+        /** Errors Default */
+        if (err.response) {
+          if(err.response.status == 500) {
+            // Error Server
+            self.notifyVue({msg: 'Opss! algo deu errado, tente novamente mais tarde.', color:'danger'})
+
+          } else {
+            // Error global
+            self.notifyVue({msg: 'Erro desconhecido!', color:'danger'})
+          }
+        }
+
+        /** Network Error Desconection */
+        if (err.name == 'Error') {
+          if (err.message == 'Network Error') {
+            self.notifyVue({msg: 'Erro: Sem conexão com o servidor!', color:'danger'})
+          }
+
+          if (err.message == 'Request failed with status code 500') {
+            self.notifyVue({msg: 'Houve um erro inesperado com o servidor.', color:'danger'})
+          }
+        }
+
+      }
+    } 
   },
   computed: {
     subtotal() {

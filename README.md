@@ -15,10 +15,24 @@ $ cd m2-teste-frontend
 $ npm install ou yarn 
 ```
 
+**2 -**  Clone o projeto e instale as dependências:
+```
+- Abra o terminal, dentro da pasta raiz do projeto execute:
+$ npm json-server ou yarn json-server
 
-**2 -** Rodar a aplicação no browser
+```
+Acesse a API: [http://localhost:8091/products](http://localhost:8091/products)
+
+**3 -** Rodar a aplicação no browser
 ``` 
 - Abra o terminal e execute:
 $ npm run dev ou yarn dev
 ```
-Abra o navegador e acesse [https://localhost:8089](https://localhost:8089)
+Acesse o projeto localhost em [https://localhost:8089](https://localhost:8089)
+
+
+**4 -** Preview do projeto finalizado e hospedado :)
+
+Acesse http://m2-teste-frontend.wagnercastro.tk
+
+<img src="./assets/img/preview-img.png" alt="preview" >
