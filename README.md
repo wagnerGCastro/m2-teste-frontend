@@ -15,7 +15,7 @@ $ cd m2-teste-frontend
 $ npm install ou yarn 
 ```
 
-**2 -**  Clone o projeto e instale as dependências:
+**2 -**  Rodar servidor Json Server no brownser:
 ```
 - Abra o terminal, dentro da pasta raiz do projeto execute:
 $ npm json-server ou yarn json-server
