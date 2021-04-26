@@ -12,7 +12,7 @@
           <span 
             v-if="p.id == stateSelected.products[slug].id"
             class="close"
-            @click.prevent="removeProduct(p, slug, `r${slug}-${p.id}`)"
+            @click.prevent="removeProduct(slug, `r${slug}-${p.id}`)"
           >x</span>
           <input 
             :id="`r${slug}-${p.id}`"
@@ -70,6 +70,7 @@ export default {
     ...mapActions([
       'actionSelectProduct', 
       'actionSelectRemoveProduct', 
+      'actionSelectTotalCart',
       'actionSelectedLoading'
     ]),
     selectProduct(p, type) {
@@ -77,7 +78,7 @@ export default {
       self.actionSelectProduct({ type: type, item: p })
       window.setTimeout(() => self.actionSelectedLoading(false), 700)
     },
-    removeProduct(p, type, selector) {
+    removeProduct(type, selector) {
       const self = this
       document.getElementById(selector).checked = false;
 
@@ -85,7 +86,7 @@ export default {
         self.actionSelectRemoveProduct({ type: 'internet' })
         self.actionSelectRemoveProduct({ type: 'tel' })
         self.actionSelectRemoveProduct({ type: 'tv' })
-        self.selected.totalCart = '0.00'
+        self.actionSelectTotalCart('0.00')
         self.actionSelectedLoading(true)
       } else {
         self.actionSelectRemoveProduct({ type: type })
